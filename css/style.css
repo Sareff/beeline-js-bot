@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Halant&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header {
+ /* position: absolute;
+  width: 250px;
+  height: 63px;
+  left: 335px;
+  top:66px;
+*/
+  font-family: Halant;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
