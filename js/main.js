@@ -2,6 +2,7 @@ let chat = document.getElementById("chat");
 let send = document.getElementById("submit");
 let input = document.getElementById("input-box");
 let botActive = false;
+var numbers;
 
 function createMsg(text, author) {
   let div = document.createElement('div');
@@ -22,32 +23,30 @@ function botResponse(request) {
     botActive = true;
   } else if (botActive === false) {
     chat.append(createMsg("Введите команду /start, для начала общения", "Bot"));
-  }
-
-  if (botActive === true) {
-    //let reName = /[\/]name:/;
-    //let reCalc = /[\/]number:/;
+  } else if (botActive === true) {
     if (request.includes("/name:")) {
       let answer = "Привет " + request.slice(6) + ", приятно познакомится. Я умею считать, введи числа которые надо посчитать";
       chat.append(createMsg(answer, "Bot"));
     } else if (request.includes("/number:")) {
-      let numbers = request.match(/\d+/);
-      if (numbers) {
-/*        for(var number in numbers) {
-          console.log(numbers[number]);
-        }*/
-
-      }
+      numbers = request.match(/\d+/g);
+      chat.append(createMsg("Что вы хотите посчитать? +,-,*,/", "Bot"));
+    } else if (request === "+") {
+      let answer = +numbers[0] + +numbers[1];
+      chat.append(createMsg(answer, "Bot"));
+    } else if (request === "-") {
+      let answer = numbers[0] - numbers[1];
+      chat.append(createMsg(answer, "Bot"));
+    } else if (request === "*") {
+      let answer = numbers[0] * numbers[1];
+      chat.append(createMsg(answer, "Bot"));
+    } else if (request === "/") {
+      let answer = numbers[0] / numbers[1];
+      chat.append(createMsg(answer, "Bot"));
+    } else if (request.includes("/stop")) {
+      botActive = false;
+      chat.append(createMsg("Всего доброго, если хочешь поговорить пиши /start", "Bot"));
+    } else {
+      chat.append(createMsg("Я не понимаю, введите другую команду!","Bot"));
     }
-    /*  switch(request) {
-        case :
-          let answer = "Привет" + request.slice(0,7) + ", приятно познакомится. Я умею считать, введи числа которые надо посчитать";
-          chat.append(createMsg(answer, "Bot"));
-          break;
-        default:
-          chat.append(createMsg("Я не понимаю, введите другую команду!", "Bot"));
-          break;
-      }
-    */
   }
 }

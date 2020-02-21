@@ -5,17 +5,14 @@
   padding: 0px;
 }
 
+body {
+  background-color: #282828;
+}
+
 header {
- /* position: absolute;
-  width: 250px;
-  height: 63px;
-  left: 335px;
-  top:66px;
-*/
-  font-family: Halant;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
-
+  color: #FFFFFF;
 }
 
