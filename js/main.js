@@ -6,12 +6,13 @@ var numbers;
 
 function createMsg(text, author) {
   let div = document.createElement('div');
-  if author === "Human" {
-    div.classList.add = "humanMessage";
-  } else if author === "Bot" {
-    div.classList.add = "botMessage";
+  if (author === "Human") {
+    div.classList.add("humanMessage");
+    div.innerHTML = "<p class=\"humanCloud\"><strong>" + author + "</strong>: " + text + "</p>";
+  } else if (author === "Bot") {
+    div.classList.add("botMessage");
+    div.innerHTML = "<p class=\"botCloud\"><strong>" + author + "</strong>: " + text + "</p>";
   }
-  div.innerHTML = "<strong>" + author + "</strong>: " + text;
   return div
 }
 
