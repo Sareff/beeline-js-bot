@@ -8,10 +8,10 @@ function createMsg(text, author) {
   let div = document.createElement('div');
   if (author === "Human") {
     div.classList.add("humanMessage");
-    div.innerHTML = "<p class=\"humanCloud\"><strong>" + author + "</strong>: " + text + "</p>";
+    div.innerHTML = "<p class=\"humanCloud\"><strong>" + '' + "</strong>  " + text + "</p>";
   } else if (author === "Bot") {
     div.classList.add("botMessage");
-    div.innerHTML = "<p class=\"botCloud\"><strong>" + author + "</strong>: " + text + "</p>";
+    div.innerHTML = "<p class=\"botCloud\"><strong>" + '' + "</strong>  " + text + "</p>";
   }
   return div
 }
@@ -21,6 +21,10 @@ send.onclick = function() {
   chat.append(createMsg(input.value, "Human"));
   botResponse(input.value);
   input.value = "";
+  chat.scrollTo({
+    top: 9999,
+    behavior: "smooth"
+  });
 };
 
 function botResponse(request) {
