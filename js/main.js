@@ -10,7 +10,7 @@ function createMsg(text, author) {
 }
 
 send.onclick = function() {
-  console.log(input.value);
+  //console.log(input.value);
   chat.append(createMsg(input.value, "Human"));
   botResponse(input.value);
   input.value = "";
@@ -30,6 +30,14 @@ function botResponse(request) {
     if (request.includes("/name:")) {
       let answer = "Привет " + request.slice(6) + ", приятно познакомится. Я умею считать, введи числа которые надо посчитать";
       chat.append(createMsg(answer, "Bot"));
+    } else if (request.includes("/number:")) {
+      let numbers = request.match(/\d+/);
+      if (numbers) {
+/*        for(var number in numbers) {
+          console.log(numbers[number]);
+        }*/
+
+      }
     }
     /*  switch(request) {
         case :
